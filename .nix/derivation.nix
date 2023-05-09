@@ -10,6 +10,7 @@ stdenvNoCC.mkDerivation {
 
   nativeBuildInputs = [
     clang
+    gnumake
   ];
 
   output = [ "out" "dev" ];

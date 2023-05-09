@@ -19,13 +19,13 @@ Currently just compile each test file with a compiler of your choice with
 
 and generate a test binary with  
 
-`c++ -std=c++17 -DKEL_COMPILE_TEST_BINARY keltest.a test_file_a.o test_file_b.o -o tests`  
+`c++ -std=c++17 libkeltest.a test_file_a.o test_file_b.o -o tests`  
 
 ## Modified commands if not available in env  
 
 `c++ -std=c++17 test_file_a.cpp -I${keltest_src} -c -o test_file_a.o`  
 `c++ -std=c++17 test_file_b.cpp -I${keltest_src} -c -o test_file_b.o`  
-`c++ -std=c++17 -DKEL_COMPILE_TEST_BINARY ${keltest_src}/keltest/test.cpp test_file_a.o test_file_b.o -o tests`  
+`c++ -std=c++17 -DKELTEST_COMPILE_TEST_BINARY ${keltest_src}/keltest/test.cpp test_file_a.o test_file_b.o -o tests`  
 
 # Writing tests  
 
