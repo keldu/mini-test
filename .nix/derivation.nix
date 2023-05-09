@@ -1,6 +1,7 @@
 { lib
 , stdenvNoCC
 , clang
+, gnumake
 }:
 
 stdenvNoCC.mkDerivation {
