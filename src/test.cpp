@@ -2,6 +2,8 @@
 
 #include <chrono>
 #include <iostream>
+#include <string_view>
+
 namespace keltest {
 
 template<typename... T>
