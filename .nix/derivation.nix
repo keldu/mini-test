@@ -15,5 +15,9 @@ stdenvNoCC.mkDerivation {
     gnumake
   ];
 
-  output = [ "out" "dev" ];
+  installPhase = ''
+    PREFIX=$out make install
+  '';
+
+  output = [ "out" ];
 }

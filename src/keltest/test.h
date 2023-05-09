@@ -12,6 +12,8 @@ private:
 	std::string description;
 	test_case* next;
 	test_case** prev;
+
+	friend class test_runner;
 public:
 	test_case(std::string file_, uint32_t line_, std::string description_);
 	~test_case();

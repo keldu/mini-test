@@ -3,6 +3,7 @@
 #include <chrono>
 #include <iostream>
 #include <string_view>
+#include <variant>
 
 namespace keltest {
 
@@ -12,7 +13,7 @@ constexpr bool always_false = false;
 test_case* test_case_head = nullptr;
 test_case** test_case_tail = &test_case_head;
 
-test_case::test_case(std::string file_, uint32_t line_, std::string& description_):
+test_case::test_case(std::string file_, uint32_t line_, std::string description_):
 	file{std::move(file_)},
 	line{line_},
 	description{std::move(description_)},
@@ -87,8 +88,8 @@ public:
 		size_t failed_count = 0;
 
 		for(test_case* test = test_case_head; test != nullptr; test = test->next){
-			std::string name = test->fil + std::string{":"} + std::to_string(test->line) + std::string{":"} + test->description;
-			write(colour::blue, "[ TEST ] ", name);
+			std::string name = test->file + std::string{":"} + std::to_string(test->line) + std::string{":"} + test->description;
+			write(colour::blue{}, "[ TEST ] ", name);
 			bool failed = true;
 
 			std::string fail_message;
@@ -110,17 +111,17 @@ public:
 			std::string message = name + std::string{" ("} + std::to_string(runtime_duration.count()) + std::string{" µs) "};
 			
 			if( failed ){
-				write(colour::red, "[ FAIL ] ", message + std::string{" "} + fail_message);
+				write(colour::red{}, "[ FAIL ] ", message + std::string{" "} + fail_message);
 				++failed_count;
 			}else{
-				write(colour::green, "[ PASS ] ", message);
+				write(colour::green{}, "[ PASS ] ", message);
 				++passed_count;
 			}
 		}
 
-		if( passed_count > 0 ) write(colour::green, std::to_string(passed_count) + std::string{" test(s) passed"}, "");
+		if( passed_count > 0 ) write(colour::green{}, std::to_string(passed_count) + std::string{" test(s) passed"}, "");
 
-		if( failed_count > 0 ) write(colour::red, std::to_string(failed_count) + std::string{" test(s) failed"}, "");
+		if( failed_count > 0 ) write(colour::red{}, std::to_string(failed_count) + std::string{" test(s) failed"}, "");
 
 		return failed_count > 0 ? -1 : 0;
 	}
