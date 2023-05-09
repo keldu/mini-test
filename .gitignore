@@ -1,0 +1,7 @@
+# Regular things to ignore
+*.o
+*.a
+*.os
+*.so
+# Yeah. I use nix. I need this  
+result*
