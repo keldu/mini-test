@@ -8,6 +8,22 @@ So here we are.
 This works similarly to other test frameworks.  
 
 # Building
+## The project itself  
+
+### Dependencies  
+
+* c++ compiler (c++17) (Usually clang)  
+* gnumake (or any other flavor)  
+
+Also at `.nix/derivation.nix` the nix build env is specified.  
+If any other questions arise you can check the supplied dependencies and install process there.  
+
+### Install into your env  
+
+`PREFIX` env variable decides where the install directory lives. Default is `/usr/local`
+
+* `make install`  
+
 ## If keltest is available in env  
 
 This really is the recommended case. Put things in your env. That's why it exists. Drop in your build container if you must, but just put it in your env.  
