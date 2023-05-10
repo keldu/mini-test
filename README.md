@@ -35,7 +35,9 @@ Currently just compile each test file with a compiler of your choice with
 
 and generate a test binary with  
 
-`c++ -std=c++17 libkeltest.a test_file_a.o test_file_b.o -o tests`  
+`c++ -std=c++17 -lkeltest test_file_a.o test_file_b.o -o tests`  
+
+See `./example` for an example setup.  
 
 ## Modified commands if not available in env  
 
