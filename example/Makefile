@@ -1,5 +1,6 @@
 .PHONY: all clean
 
+CXX ?= c++
 PREFIX ?= /usr/local
 
 all: build/example

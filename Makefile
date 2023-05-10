@@ -1,12 +1,14 @@
 .PHONY: all clean
 
+CXX ?= c++
+CXXFLAGS ?= -std=c++17
 PREFIX ?= /usr/local
 
 all: build/libkeltest.a
 
 build/libkeltest.a:
 	mkdir -p ./build
-	c++ -std=c++17 -DKELTEST_COMPILE_TEST_BINARY src/keltest/test.cpp -c -o build/test.o
+	${CXX} ${CXXFLAGS} -DKELTEST_COMPILE_TEST_BINARY src/keltest/test.cpp -c -o build/test.o
 	ar rcs build/libkeltest.a build/test.o
 
 clean:
