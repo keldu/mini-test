@@ -1,11 +1,11 @@
 # keldu's minimal testing framework  
 
 I jokingly suggested using my mini framework which is baked in a private repo for a project.  
-Though I didn't want to seriously suggest it, a miniscule percentage suggested to at least make it
-available.  
+Though I didn't seriously suggest it, some attendants wanted me to at least make it
+available to the public.  
 So here we are.  
 
-This works similarly to other test frameworks.  
+This works similarly to other test frameworks, but with minimality in mind.  
 
 # Building
 ## The project itself  
